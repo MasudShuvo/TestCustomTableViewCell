@@ -19,19 +19,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    numberOfTableRow = 100;
+    
+    array = [[NSMutableArray alloc] init];
+    [self setAllElementofArrayToZero];
     table = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, 320, 400) style:UITableViewStylePlain];
     table.dataSource = self;
     table.delegate = self;
     [self.view addSubview:table];
-    array = [[NSMutableArray alloc] init];
 }
 
+- (void)setAllElementofArrayToZero
+{
+    for(int i = 0;i < numberOfTableRow ;i++)
+    {
+        [array addObject:[NSNumber numberWithInteger:0]];
+    }
+}
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return numberOfTableRow;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -41,7 +52,7 @@
 
 - (UITableViewCell *) customUITableViewCell:(NSString *)cellIdentifier {
     
-    CGRect cellFrame = CGRectMake(0, 0, 320, 40);
+    CGRect cellFrame = CGRectMake(0, 0, 320, 65);
     CGRect labelFrame = CGRectMake(60,0,60,30);
     
     UILabel *label;
@@ -63,8 +74,6 @@
     
     if (cell == nil) {
         cell = [self customUITableViewCell:cellIdentifier];
-        
-        [array addObject:[NSNumber numberWithInteger:0]];
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:@"add" forState:UIControlStateNormal];
         //set the position of the button

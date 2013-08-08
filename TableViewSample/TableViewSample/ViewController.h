@@ -12,5 +12,6 @@
 {
     NSMutableArray *array;
     UITableView *table;
+    NSInteger numberOfTableRow;
 }
 @end
