@@ -53,7 +53,7 @@
 - (UITableViewCell *) customUITableViewCell:(NSString *)cellIdentifier {
     
     CGRect cellFrame = CGRectMake(0, 0, 320, 65);
-    CGRect labelFrame = CGRectMake(60,0,60,30);
+    CGRect labelFrame = CGRectMake(120,0,60,30);
     
     UILabel *label;
     
@@ -75,9 +75,9 @@
     if (cell == nil) {
         cell = [self customUITableViewCell:cellIdentifier];
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setTitle:@"add" forState:UIControlStateNormal];
+        [button setTitle:@"click count" forState:UIControlStateNormal];
         //set the position of the button
-        [button setFrame:CGRectMake(0, 0, 50, 30)];
+        [button setFrame:CGRectMake(0, 0, 100, 30)];
         [button addTarget:self action:@selector(increaseItemCount:) forControlEvents:UIControlEventTouchUpInside];
         button.backgroundColor= [UIColor redColor];
         [cell.contentView addSubview:button];
